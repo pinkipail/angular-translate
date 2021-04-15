@@ -3,5 +3,10 @@
     "target": "https://iam.api.cloud.yandex.net/",
     "secure": false,
     "changeOrigin": true
+  },
+  "/translate/": {
+    "target": "https://translate.api.cloud.yandex.net/",
+    "secure": false,
+    "changeOrigin": true
   }
 }

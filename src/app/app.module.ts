@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthHttpService } from './infrastructure/services/auth-http.service';
 import { AUTH_INTERCEPTOR } from './infrastructure/interceptors/auth.interceptor';
+import { TranslationHttpService } from './infrastructure/services/translation-http.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AUTH_INTERCEPTOR } from './infrastructure/interceptors/auth.interceptor
   providers: [
     AuthHttpService,
     AUTH_INTERCEPTOR,
+    TranslationHttpService,
   ],
   bootstrap: [AppComponent]
 })
