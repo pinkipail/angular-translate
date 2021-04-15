@@ -1,8 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthHttpService } from './infrastructure/services/auth-http.service';
+import { AUTH_INTERCEPTOR } from './infrastructure/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -10,9 +13,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthHttpService,
+    AUTH_INTERCEPTOR,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

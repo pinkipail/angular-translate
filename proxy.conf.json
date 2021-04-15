@@ -1,0 +1,7 @@
+{
+  "/iam/": {
+    "target": "https://iam.api.cloud.yandex.net/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
