@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="title">
+    История
+  </div>
+  <mat-card
+    *ngFor="let translation of listTranslations"
+    class="card"
+    (click)="selectLog(translation)"
+  >
+    <div class="card__header">
+      {{translation.source.language.name}}
+      <mat-icon>
+        arrow_right_alt
+      </mat-icon>
+      {{translation.target.language.name}}
+    </div>
+
+    <div class="card__text">
+      {{translation.source.text}}
+    </div>
+
+    <div class="card__text card__text-translate">
+      {{translation.target.text}}
+    </div>
+  </mat-card>
+</div>

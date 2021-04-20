@@ -1,62 +1,96 @@
-<div class="container">
-  <mat-form-field
-    appearance="outline"
-    class="area"
-    [formGroup]="source"
-  >
-    <div class="area-header">
-      <app-select
-        formControlName="language"
-        [options]="listLanguages"
-        defaultName="Автоопределение"
-        valueKey="code"
-        labelKey="name"
-      ></app-select>
-      <button
-        mat-icon-button
-        type="button"
-        (click)="clearAreas()"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </div>
-    <textarea
-      formControlName="text"
-      matInput
-      class="area__textarea"
-      placeholder="Введите текст"
-    ></textarea>
-  </mat-form-field>
+<mat-drawer-container
+  class="example-container"
+  autosize
+>
+  <div class="container">
+    <mat-form-field
+      appearance="outline"
+      class="area"
+      [formGroup]="source"
+    >
+      <div class="area-header">
+        <app-select
+          formControlName="language"
+          [options]="listLanguages"
+          defaultName="Автоопределение"
+          valueKey="code"
+          labelKey="name"
+        ></app-select>
+        <button
+          mat-icon-button
+          type="button"
+          (click)="clearAreas()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <textarea
+        formControlName="text"
+        matInput
+        class="area__textarea"
+        placeholder="Введите текст"
+      ></textarea>
+    </mat-form-field>
 
-  <button
-    mat-raised-button
-    color="primary"
-    class="btn-translate"
-    (click)="translate()"
-    type="submit"
-  >
-    Перевести
-    <mat-icon>translate</mat-icon>
-  </button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn-translate"
+      (click)="translate()"
+      type="submit"
+    >
+      Перевести
+      <mat-icon>translate</mat-icon>
+    </button>
 
-  <mat-form-field
-    [formGroup]="target"
-    appearance="outline"
-    class="area"
+    <mat-form-field
+      [formGroup]="target"
+      appearance="outline"
+      class="area"
+    >
+      <div class="area-header">
+        <app-select
+          formControlName="language"
+          [options]="listLanguages"
+          valueKey="code"
+          labelKey="name"
+        ></app-select>
+      </div>
+      <textarea
+        formControlName="text"
+        matInput
+        class="area__textarea"
+        placeholder="Введите текст"
+      ></textarea>
+    </mat-form-field>
+
+    <button
+      mat-button
+      class="btn-history"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon>history</mat-icon>
+      История
+    </button>
+  </div>
+
+  <mat-drawer
+    #sidenav
+    mode="over"
+    position="end"
   >
-    <div class="area-header">
-      <app-select
-        formControlName="language"
-        [options]="listLanguages"
-        valueKey="code"
-        labelKey="name"
-      ></app-select>
-    </div>
-    <textarea
-      formControlName="text"
-      matInput
-      class="area__textarea"
-      placeholder="Введите текст"
-    ></textarea>
-  </mat-form-field>
-</div>
+    <button
+      class="btn-close"
+      mat-icon-button
+      (click)="sidenav.close()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+    <app-translation-list
+      (select)="select($event)"
+      (select)="sidenav.close()"
+    >
+
+    </app-translation-list>
+  </mat-drawer>
+</mat-drawer-container>

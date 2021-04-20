@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TranslationHttpService } from '../../infrastructure/services/translation-http.service';
 import { Language } from 'src/app/infrastructure/types/languages.type';
+import { TranslationLog } from '../../infrastructure/types/translation-log.type';
 
 @Component({
   selector: 'app-translation-page',
@@ -51,6 +52,11 @@ export class TranslationPageComponent implements OnInit {
     this.source.reset();
     this.target.reset();
     this.setDefaultTargetLanguage();
+  }
+
+  public select(translation: TranslationLog): void {
+    this.source.patchValue(translation.source);
+    this.target.patchValue(translation.target);
   }
 
   private initListLanguages(): void {

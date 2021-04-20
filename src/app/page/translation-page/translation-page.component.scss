@@ -1,8 +1,15 @@
+.btn-close {
+  float: right;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 54px auto;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 54px 0;
+  box-sizing: border-box;
 }
 
 .btn-translate {
@@ -25,6 +32,13 @@
     padding: 10px 20px;
     box-sizing: border-box;
   }
+}
+
+.btn-history {
+  margin-top: 24px;
+  font-size: 24px;
+  line-height: 2;
+  opacity: 0.7;
 }
 
 :host ::ng-deep {
