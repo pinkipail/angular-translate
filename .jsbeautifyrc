@@ -1,0 +1,30 @@
+{
+  "css":{
+    "eol": "\n",
+    "end_with_newline": false,
+    "indent_char": " ",
+    "indent_size": 2,
+    "indent_with_tabs": false,
+    "preserve_newlines": true,
+    "newline_between_rules": true,
+    "selector_separator_newline": false,
+    "space_around_combinator": true
+  },
+  "html": {
+    "eol": "\n",
+    "end_with_newline": false,
+    "indent_char": " ",
+    "indent_size": 2,
+    "indent_with_tabs": false,
+    "preserve_newlines": true,
+    "wrap_line_length": 120,
+    "max_preserve_newlines": 1,
+    "extra_liners": ["head", "body", "/html"],
+    "indent_body_inner_html": true,
+    "indent_handlebars": true,
+    "indent_head_inner_html": true,
+    "indent_inner_html": true,
+    "indent_scripts": "normal",
+    "wrap_attributes": "force-expand-multiline"
+  }
+}
