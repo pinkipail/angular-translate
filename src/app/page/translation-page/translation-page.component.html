@@ -1,0 +1,62 @@
+<div class="container">
+  <mat-form-field
+    appearance="outline"
+    class="area"
+    [formGroup]="source"
+  >
+    <div class="area-header">
+      <app-select
+        formControlName="language"
+        [options]="listLanguages"
+        defaultName="Автоопределение"
+        valueKey="code"
+        labelKey="name"
+      ></app-select>
+      <button
+        mat-icon-button
+        type="button"
+        (click)="clearAreas()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <textarea
+      formControlName="text"
+      matInput
+      class="area__textarea"
+      placeholder="Введите текст"
+    ></textarea>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="btn-translate"
+    (click)="translate()"
+    type="submit"
+  >
+    Перевести
+    <mat-icon>translate</mat-icon>
+  </button>
+
+  <mat-form-field
+    [formGroup]="target"
+    appearance="outline"
+    class="area"
+  >
+    <div class="area-header">
+      <app-select
+        formControlName="language"
+        [options]="listLanguages"
+        valueKey="code"
+        labelKey="name"
+      ></app-select>
+    </div>
+    <textarea
+      formControlName="text"
+      matInput
+      class="area__textarea"
+      placeholder="Введите текст"
+    ></textarea>
+  </mat-form-field>
+</div>

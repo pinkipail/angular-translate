@@ -1,0 +1,25 @@
+<button
+  mat-button
+  [matMenuTriggerFor]="menu"
+>
+  {{selectedOption ? selectedOption[labelKey] : defaultName}}
+</button>
+<mat-menu #menu="matMenu">
+  <button
+    *ngIf="defaultName"
+    mat-button
+    [class.mat-menu_selected]="!selectedOption"
+    (click)="select(null)"
+  >
+    {{defaultName}}
+  </button>
+  <button
+    mat-button
+    *ngFor="let language of options"
+    [class.mat-menu_selected]="selectedOption && (selectedOption[valueKey] === language[valueKey])"
+    [value]="language[valueKey]"
+    (click)="select(language)"
+  >
+    {{language[labelKey]}}
+  </button>
+</mat-menu>

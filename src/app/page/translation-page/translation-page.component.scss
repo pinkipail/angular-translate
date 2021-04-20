@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 54px auto;
+}
+
+.btn-translate {
+  margin-bottom: 18px;
+}
+
+.area {
+  width: 640px;
+  padding: 0;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 6px;
+  }
+
+   &__textarea {
+    min-height: 180px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+}
+
+:host ::ng-deep {
+  .mat-form-field-infix {
+    padding-top: 0;
+    border-top: none;
+  }
+}
