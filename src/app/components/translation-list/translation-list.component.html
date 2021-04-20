@@ -23,4 +23,20 @@
       {{translation.target.text}}
     </div>
   </mat-card>
+
+  <div
+    *ngIf="!listTranslations.length"
+    class="empty"
+  >
+    пусто
+  </div>
+
+  <button
+    *ngIf="listTranslations.length"
+    mat-button
+    class="brn-remove"
+    (click)="removeAll()"
+  >
+    очистить историю
+  </button>
 </div>

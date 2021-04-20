@@ -20,6 +20,7 @@ import { TranslationPageComponent } from './page/translation-page/translation-pa
 import { ReactiveFormsModule } from '@angular/forms';
 import { SelectComponent } from './components/select/select.component';
 import { TranslationListComponent } from './components/translation-list/translation-list.component';
+import { TranslationStorageService } from './infrastructure/services/translation-storage.service';
 
 
 
@@ -49,6 +50,7 @@ import { TranslationListComponent } from './components/translation-list/translat
     AuthHttpService,
     AUTH_INTERCEPTOR,
     TranslationHttpService,
+    TranslationStorageService,
   ],
   bootstrap: [AppComponent]
 })

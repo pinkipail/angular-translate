@@ -1,12 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TranslationLog } from 'src/app/infrastructure/types/translation-log.type';
+import { TranslationStorageService } from '../../infrastructure/services/translation-storage.service';
 
 @Component({
   selector: 'app-translation-list',
   templateUrl: './translation-list.component.html',
   styleUrls: ['./translation-list.component.scss'],
 })
-export class TranslationListComponent {
+export class TranslationListComponent implements OnInit {
+
 
   @Output() public select = new EventEmitter<TranslationLog>();
 
@@ -49,8 +51,24 @@ export class TranslationListComponent {
     },
   ];
 
+  constructor(private translationStorage: TranslationStorageService) {}
+
+  public ngOnInit(): void {
+    this.subscribeToUpdateTranslations();
+  }
+
   public selectLog(translation: TranslationLog): void {
     this.select.emit(translation);
   }
 
+  private subscribeToUpdateTranslations(): void {
+    this.translationStorage.all
+      .subscribe(res => {
+        this.listTranslations = res;
+      });
+  }
+
+  public removeAll(): void {
+    this.translationStorage.removeAll();
+  }
 }

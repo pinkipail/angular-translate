@@ -13,7 +13,7 @@ export class TranslationHttpService {
 
   constructor(private http: HttpClient) { }
 
-  public translate(text: string, targetLanguageCode: string, sourceLanguageCode?: string, ): Observable<Translation> {
+  public translate(text: string, targetLanguageCode: string, sourceLanguageCode?: string): Observable<Translation> {
     const body = {
       folderId: this.folderId,
       texts: [text],
